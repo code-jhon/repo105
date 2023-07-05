@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useContext } from 'react'
+import { GPTContext } from '../utils/providers/GPTContext';
 
 const PromptInput: React.FC = () => {
+  const { prompt, setPrompt, clickHandler } = useContext(GPTContext);
   const [charCount, setCharCount] = useState(0);
-  const [prompt, setPrompt] = useState('');
   const [inputError, setInputError] = useState(false);
   const limit = 500;
 
@@ -33,6 +35,7 @@ const PromptInput: React.FC = () => {
         value={prompt}
       ></textarea>
       <span className={`${inputError ? 'text-red-400' : 'text-gray-400'}`}>{`${limit - charCount}`}</span>
+      <button onClick={clickHandler} className="pl-5">Send</button>
       <button onClick={handleClear} className="pl-5">Clear</button>
     </div>
   )
