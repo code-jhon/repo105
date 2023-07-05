@@ -10,7 +10,7 @@ export const GPTProvider: React.FC<ChatContextProviderInterface>= ({ children })
   const [messages, setMessages] = useState<Message[]>([
     { role: "system", content: import.meta.env.VITE_OPENAI_PROMPT }
   ]);
-  const [fetched, setFetched] = useState<boolean>(false);
+  const [fetched, setFetched] = useState<boolean>(true);
 
   // update messages when prompt changes
   const clickHandler = () => {
