@@ -33,6 +33,9 @@ export interface GPTContextType {
   messages: Message[];
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
   clickHandler: () => void;
+  content: string;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
+  handleClearHistory: () => void;
 }
 
 export interface USEGPTInterface {
