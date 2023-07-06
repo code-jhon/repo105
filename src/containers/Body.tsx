@@ -17,12 +17,13 @@ const Body: React.FC = () => {
   return (
     <div className="bg-gray-900 p-4 h-screen">
       <div className="flex h-full">
-        <div className={`${show ? 'opacity-0' : 'opacity-100'} absolute transition-opacity duration-500 bottom-0 right-0 w-screen h-40 bg-gray-600 bg-opacity-80 border border-gray-700 rounded-md p-4`}>
-          {/* Content for the floating div */}
-          <div className="flex flex-col text-white font-semibold">
-            <PromptInput />
+        { show && <div className={`absolute transition-opacity duration-500 bottom-0 right-0 w-screen h-40 bg-gray-600 bg-opacity-80 border border-gray-700 rounded-md p-4`}>
+            <div className="flex flex-col text-white font-semibold">
+              <PromptInput />
+            </div>
           </div>
-        </div>
+        }
+        
         <div className="w-1/2 bg-gray-600 border border-gray-700 rounded-md p-4 mr-2">
           {/* Content for the first section */}
           <div className="flex flex-col h-full">
