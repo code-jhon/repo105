@@ -1,11 +1,25 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { CodeComponent, CodeRenderer, PromptInput } from '../components';
 
 import asist from '../assets/asist.gif';
+import ToastMessage from '../components/ToastMessage';
 
 const Body: React.FC = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
+  const [toastType, setToastType] = useState('');
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    if (toastType && toastMessage) {
+      setShow(true);
+      setTimeout(() => {
+        setShow(false);
+      }, 5000);
+    }
+  }
+  , [toastType, toastMessage]);
 
   const handleClick = () => {
     setShow(!show);
@@ -27,7 +41,7 @@ const Body: React.FC = () => {
         <div className="w-1/2 bg-gray-600 border border-gray-700 rounded-md p-4 mr-2">
           {/* Content for the first section */}
           <div className="flex flex-col h-full">
-            <CodeComponent />
+            <CodeComponent setToastType={setToastType} setToastMessage={setToastMessage}/>
           </div>
         </div>
         <div className="w-1/2 bg-gray-600 border border-gray-700 rounded-md p-4 ml-2">
@@ -44,6 +58,14 @@ const Body: React.FC = () => {
         style={{ backgroundImage: `url(${asist})` }}
       >
       </button>
+      {
+        showToast && <ToastMessage
+          toastType={toastType}
+          toastMessage={toastMessage}
+          show={showToast}
+          setShow={setShowToast}
+        />
+      }
     </div>
   );
 };
