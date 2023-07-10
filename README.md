@@ -1,4 +1,5 @@
-# Project Resume
+# OPENAI + ReactJS Implementation
+DEMO: https://openai-implementation.netlify.app/
 
 This project is a TypeScript-based React application that leverages the power of Tailwind CSS for efficient and responsive styling. The commit history reflects a systematic development process aimed at improving the codebase and introducing a range of features.
 
