@@ -8,6 +8,15 @@ const PromptInput: React.FC = () => {
   const [inputError, setInputError] = useState(false);
   const limit = 500;
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if ((event.metaKey || event.ctrlKey) && event.key === 's') {
+      // Perform the desired action when CMD+S (or Ctrl+S) is pressed
+      event.preventDefault(); // Prevent the default browser behavior (e.g., saving the page)
+      console.log('CMD+S (or Ctrl+S) pressed');
+      // Add your code here
+    }
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if(e.target.value.length <= limit){
       setCharCount(e.target.value.length);
@@ -35,7 +44,7 @@ const PromptInput: React.FC = () => {
         value={prompt}
       ></textarea>
       <span className={`${inputError ? 'text-red-400' : 'text-gray-400'}`}>{`${limit - charCount}`}</span>
-      <button onClick={clickHandler} className="pl-5">Send</button>
+      <button onClick={clickHandler} onKeyDown={handleKeyDown} className="pl-5">Send</button>
       <button onClick={handleClear} className="pl-5">Clear</button>
       <button onClick={handleClearHistory} className="pl-5">Clear History</button>
     </div>
