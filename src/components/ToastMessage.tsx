@@ -7,7 +7,7 @@ interface ToastMessageProps {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ToastMessage: React.FC<ToastMessageProps> = ({ toastType, toastMessage, show, setShow }) => {
+const ToastMessage: React.FC<ToastMessageProps> = ({ toastType, toastMessage, setShow }) => {
   return (
     <div id={`toast-${toastType}`} className="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 fixed top-5 left-5" role="alert">
       <div className={`inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-${toastType}-500 bg-${toastType}-100 rounded-lg dark:bg-${toastType}-800 dark:text-${toastType}-200`}>
