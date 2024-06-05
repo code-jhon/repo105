@@ -6,7 +6,7 @@ interface CodeExportProps {
 
 const CodeExport: React.FC<CodeExportProps> = ({ code }) => {
   const handleExport = () => {
-    // Logic to export the code
+    //here we can export the code to a file
   };
 
   return (
