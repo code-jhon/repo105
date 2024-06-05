@@ -6,12 +6,14 @@ interface CodeExportProps {
 
 const CodeExport: React.FC<CodeExportProps> = ({ code }) => {
   const handleExport = () => {
-    //here we can export the code to a file
+    // Logic to export the code
+    // another line
   };
 
   return (
     <div>
       <pre>{code}</pre>
+      <button onClick={handleExport}>Export Code</button>
       <button onClick={handleExport}>Export Code</button>
     </div>
   );
